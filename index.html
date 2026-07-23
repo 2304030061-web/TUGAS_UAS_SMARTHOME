@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>AI Smart Home Dashboard</title>
+
+    <link rel="stylesheet"
+        href="style.css">
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    🏠
+                </div>
+
+                <div>
+                    <h2>AI Smart Home</h2>
+                    <span>Security System</span>
+                </div>
+
+            </div>
+
+
+            <nav>
+
+                <a href="#dashboard"
+                    class="active">
+
+                    <span>📊</span>
+
+                    Dashboard
+
+                </a>
+
+
+                <a href="#monitoring">
+
+                    <span>📡</span>
+
+                    Monitoring
+
+                </a>
+
+
+                <a href="#device">
+
+                    <span>⚙️</span>
+
+                    Perangkat
+
+                </a>
+
+            </nav>
+
+
+            <div class="connection">
+
+                <div class="connection-dot"
+                    id="connectionDot">
+                </div>
+
+                <div>
+
+                    <strong id="connectionStatus">
+                        Menghubungkan...
+                    </strong>
+
+                    <small>
+                        ESP32
+                    </small>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- MAIN -->
+
+        <main class="main">
+
+            <!-- HEADER -->
+
+            <header class="header">
+
+                <div>
+
+                    <h1>
+                        Smart Home Dashboard
+                    </h1>
+
+                    <p>
+                        Monitoring kondisi rumah secara real-time
+                    </p>
+
+                </div>
+
+
+                <div class="header-info">
+
+                    <div class="time"
+                        id="currentTime">
+                        00:00:00
+                    </div>
+
+                    <div class="date"
+                        id="currentDate">
+                        -
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- STATUS -->
+
+            <section>
+
+                <div class="system-status"
+                    id="systemStatus">
+
+                    <div class="status-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h2 id="statusTitle">
+                            Sistem Aman
+                        </h2>
+
+                        <p id="statusDescription">
+                            Semua sensor dalam kondisi normal
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SENSOR -->
+
+            <section id="monitoring">
+
+                <div class="section-title">
+
+                    <h2>
+                        Monitoring Sensor
+                    </h2>
+
+                    <span>
+                        ● Live Data
+                    </span>
+
+                </div>
+
+
+                <div class="sensor-grid">
+
+
+                    <!-- SUHU -->
+
+                    <div class="card sensor-card">
+
+                        <div class="card-header">
+
+                            <div class="sensor-icon temperature">
+                                🌡️
+                            </div>
+
+                            <span class="sensor-label">
+                                DHT22
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Suhu
+                        </h3>
+
+
+                        <div class="sensor-value">
+
+                            <span id="suhu">
+                                0
+                            </span>
+
+                            <small>
+                                °C
+                            </small>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <div class="progress-bar"
+                                id="suhuProgress">
+                            </div>
+
+                        </div>
+
+
+                        <p id="suhuStatus">
+                            Normal
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- KELEMBAPAN -->
+
+                    <div class="card sensor-card">
+
+                        <div class="card-header">
+
+                            <div class="sensor-icon humidity">
+                                💧
+                            </div>
+
+                            <span class="sensor-label">
+                                DHT22
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Kelembapan
+                        </h3>
+
+
+                        <div class="sensor-value">
+
+                            <span id="kelembapan">
+                                0
+                            </span>
+
+                            <small>
+                                %
+                            </small>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <div class="progress-bar"
+                                id="kelembapanProgress">
+                            </div>
+
+                        </div>
+
+
+                        <p>
+                            Kelembapan Ruangan
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- GAS -->
+
+                    <div class="card sensor-card">
+
+                        <div class="card-header">
+
+                            <div class="sensor-icon gas">
+                                🛢️
+                            </div>
+
+                            <span class="sensor-label">
+                                MQ-2
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Gas / Asap
+                        </h3>
+
+
+                        <div class="sensor-value">
+
+                            <span id="gas">
+                                0
+                            </span>
+
+                            <small>
+                                ADC
+                            </small>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <div class="progress-bar"
+                                id="gasProgress">
+                            </div>
+
+                        </div>
+
+
+                        <p id="gasStatus">
+                            Normal
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- PIR -->
+
+                    <div class="card sensor-card">
+
+                        <div class="card-header">
+
+                            <div class="sensor-icon motion">
+                                🚶
+                            </div>
+
+                            <span class="sensor-label">
+                                PIR
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Deteksi Gerakan
+                        </h3>
+
+
+                        <div class="motion-status"
+                            id="gerakan">
+
+                            TIDAK ADA
+
+                        </div>
+
+
+                        <p>
+                            Status sensor PIR
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- DEVICE -->
+
+            <section id="device">
+
+                <div class="section-title">
+
+                    <h2>
+                        Status Perangkat
+                    </h2>
+
+                </div>
+
+
+                <div class="device-grid">
+
+
+                    <!-- LED MERAH -->
+
+                    <div class="device-card">
+
+                        <div class="device-icon red">
+                            🔴
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                LED Merah
+                            </h3>
+
+                            <p>
+                                Indikator Bahaya
+                            </p>
+
+                        </div>
+
+                        <span class="device-status"
+                            id="ledMerah">
+                            OFF
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- LED HIJAU -->
+
+                    <div class="device-card">
+
+                        <div class="device-icon green">
+                            🟢
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                LED Hijau
+                            </h3>
+
+                            <p>
+                                Indikator Aman
+                            </p>
+
+                        </div>
+
+                        <span class="device-status"
+                            id="ledHijau">
+                            OFF
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- LED PUTIH -->
+
+                    <div class="device-card">
+
+                        <div class="device-icon white">
+                            ⚪
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                LED Putih
+                            </h3>
+
+                            <p>
+                                Lampu Penerangan
+                            </p>
+
+                        </div>
+
+                        <span class="device-status"
+                            id="ledPutih">
+                            OFF
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- BUZZER -->
+
+                    <div class="device-card">
+
+                        <div class="device-icon buzzer">
+                            🔊
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Buzzer
+                            </h3>
+
+                            <p>
+                                Alarm Keamanan
+                            </p>
+
+                        </div>
+
+                        <span class="device-status"
+                            id="buzzer">
+                            OFF
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- SERVO -->
+
+                    <div class="device-card">
+
+                        <div class="device-icon servo">
+                            🔄
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Servo Motor
+                            </h3>
+
+                            <p>
+                                Posisi Pintu / Ventilasi
+                            </p>
+
+                        </div>
+
+                        <span class="device-status"
+                            id="servo">
+                            0°
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- RELAY -->
+
+                    <div class="device-card">
+
+                        <div class="device-icon relay">
+                            ⚡
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Relay
+                            </h3>
+
+                            <p>
+                                Kontrol Perangkat
+                            </p>
+
+                        </div>
+
+                        <span class="device-status"
+                            id="relay">
+                            OFF
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- FOOTER -->
+
+            <footer>
+
+                <p>
+                    AI Smart Home System
+                    © 2026
+                </p>
+
+                <p>
+                    ESP32 IoT Monitoring
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

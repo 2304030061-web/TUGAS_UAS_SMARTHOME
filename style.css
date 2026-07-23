@@ -1,0 +1,764 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: "Inter", Arial, sans-serif;
+
+    background: #f4f6f8;
+
+    color: #1f2937;
+
+}
+
+
+.dashboard {
+
+    display: flex;
+
+    min-height: 100vh;
+
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+
+    width: 250px;
+
+    background: #111827;
+
+    color: white;
+
+    padding: 25px 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: fixed;
+
+    height: 100vh;
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 50px;
+
+}
+
+
+.logo-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    background: #2563eb;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 23px;
+
+}
+
+
+.logo h2 {
+
+    font-size: 16px;
+
+}
+
+
+.logo span {
+
+    font-size: 11px;
+
+    color: #9ca3af;
+
+}
+
+
+nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+nav a {
+
+    color: #9ca3af;
+
+    text-decoration: none;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    gap: 12px;
+
+    align-items: center;
+
+    transition: 0.3s;
+
+}
+
+
+nav a:hover,
+nav a.active {
+
+    background: #2563eb;
+
+    color: white;
+
+}
+
+
+.connection {
+
+    margin-top: auto;
+
+    background: #1f2937;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.connection small {
+
+    display: block;
+
+    color: #9ca3af;
+
+    margin-top: 3px;
+
+}
+
+
+.connection-dot {
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #ef4444;
+
+}
+
+
+.connection-dot.online {
+
+    background: #22c55e;
+
+}
+
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+
+    margin-left: 250px;
+
+    width: calc(100% - 250px);
+
+    padding: 30px;
+
+}
+
+
+.header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+.header h1 {
+
+    font-size: 28px;
+
+}
+
+
+.header p {
+
+    color: #6b7280;
+
+    margin-top: 5px;
+
+}
+
+
+.header-info {
+
+    text-align: right;
+
+}
+
+
+.time {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+}
+
+
+.date {
+
+    color: #6b7280;
+
+    font-size: 13px;
+
+}
+
+
+
+/* =========================
+   SYSTEM STATUS
+========================= */
+
+.system-status {
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+    background: #dcfce7;
+
+    border: 1px solid #86efac;
+
+}
+
+
+.system-status.danger {
+
+    background: #fee2e2;
+
+    border-color: #fca5a5;
+
+}
+
+
+.status-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    background: #22c55e;
+
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 25px;
+
+}
+
+
+.system-status.danger .status-icon {
+
+    background: #ef4444;
+
+}
+
+
+.system-status h2 {
+
+    font-size: 18px;
+
+}
+
+
+.system-status p {
+
+    margin-top: 5px;
+
+    color: #6b7280;
+
+}
+
+
+
+/* =========================
+   SECTION
+========================= */
+
+section {
+
+    margin-bottom: 35px;
+
+}
+
+
+.section-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+
+}
+
+
+.section-title h2 {
+
+    font-size: 20px;
+
+}
+
+
+.section-title span {
+
+    color: #22c55e;
+
+    font-size: 13px;
+
+}
+
+
+
+/* =========================
+   SENSOR CARD
+========================= */
+
+.sensor-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.card {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,0.06);
+
+}
+
+
+.card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.sensor-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+}
+
+
+.temperature {
+
+    background: #fee2e2;
+
+}
+
+
+.humidity {
+
+    background: #dbeafe;
+
+}
+
+
+.gas {
+
+    background: #fef3c7;
+
+}
+
+
+.motion {
+
+    background: #ede9fe;
+
+}
+
+
+.sensor-label {
+
+    font-size: 11px;
+
+    color: #9ca3af;
+
+}
+
+
+.card h3 {
+
+    margin-top: 20px;
+
+    font-size: 15px;
+
+}
+
+
+.sensor-value {
+
+    margin-top: 10px;
+
+    font-size: 32px;
+
+    font-weight: 800;
+
+}
+
+
+.sensor-value small {
+
+    font-size: 15px;
+
+    font-weight: normal;
+
+}
+
+
+.progress {
+
+    height: 6px;
+
+    background: #e5e7eb;
+
+    border-radius: 10px;
+
+    margin-top: 15px;
+
+    overflow: hidden;
+
+}
+
+
+.progress-bar {
+
+    height: 100%;
+
+    width: 0%;
+
+    background: #2563eb;
+
+    transition: width 0.5s;
+
+}
+
+
+.card p {
+
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    color: #6b7280;
+
+}
+
+
+.motion-status {
+
+    margin-top: 20px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #22c55e;
+
+}
+
+
+.motion-status.detected {
+
+    color: #ef4444;
+
+}
+
+
+
+/* =========================
+   DEVICE
+========================= */
+
+.device-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.device-card {
+
+    background: white;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,0.06);
+
+}
+
+
+.device-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 20px;
+
+}
+
+
+.device-card h3 {
+
+    margin: 0;
+
+    font-size: 14px;
+
+}
+
+
+.device-card p {
+
+    margin-top: 4px;
+
+}
+
+
+.device-status {
+
+    margin-left: auto;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+.device-status.on {
+
+    color: #22c55e;
+
+}
+
+
+.device-status.off {
+
+    color: #9ca3af;
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+
+    padding: 20px 0;
+
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .sensor-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .device-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+
+        display: none;
+
+    }
+
+    .main {
+
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 20px;
+
+    }
+
+    .header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+    .header-info {
+
+        text-align: left;
+
+    }
+
+    .sensor-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .device-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
