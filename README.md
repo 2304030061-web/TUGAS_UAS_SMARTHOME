@@ -1,0 +1,2 @@
+# TUGAS_UAS_SMARTHOME
+Ahmad Zaenur Rifai (2304030061) 6A Ryan Ardiansyah (2304030005) 6A
